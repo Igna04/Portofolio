@@ -47,6 +47,9 @@ Route::controller(AboutController::class)->prefix('/about')->group(function () {
 Route::controller(ProjectController::class)->prefix('/project')->group(function () {
     Route::get('/', 'index')->name('project');
 });
+
+Route::get('/blog/detail/{id}', [BlogController::class, 'show'])->name('blog.show');
+
 /*
 |--------------------------------------------------------------------------
 | END ROUTE FRONTEND 🟤
@@ -55,93 +58,3 @@ Route::controller(ProjectController::class)->prefix('/project')->group(function 
 
 
 
-/*
-|--------------------------------------------------------------------------
-| ROUTE PAGE ADMIN 🟢
-|--------------------------------------------------------------------------
-*/
-// Route::group(['middleware' => 'admin'], function () {
-
-Route::controller(AdminController::class)->prefix('/dashboard')->group(function () {
-    Route::get('/dashboard', 'index')->name('dashboard');
-});
-
-Route::controller(AdminBlogController::class)->prefix('/admin/blog')->group(function () {
-    Route::get('/home', 'index')->name('admin-blog.home');
-    Route::get('/', 'index')->name('admin-blog.index');
-    Route::get('/create', 'create')->name('admin-blog.create');
-    Route::get('/detail/{id}', 'show')->name('admin-blog.show');
-    Route::get('/edit/{id}', 'edit')->name('admin-blog.edit');
-    Route::get('/persetujuan', 'persetujuan')->name('admin-blog.persetujuan');
-    Route::post('/{id}', 'update')->name('admin-blog.update');
-    Route::patch('/status/{id}', 'status')->name('admin-blog.status');
-    Route::post('/', 'store')->name('admin-blog.store');
-    Route::delete('/{id}', 'destroy')->name('admin-blog.destroy');
-});
-
-Route::controller(CategoryBlogController::class)->prefix('/admin/blog')->group(function () {
-    Route::get('/category', 'index')->name('admin-blog-category.index');
-    Route::patch('/category/{id}', 'update')->name('admin-blog-category.update');
-    Route::post('/category', 'store')->name('admin-blog-category.store');
-    Route::delete('/category/{id}', 'destroy')->name('admin-blog-category.destroy');
-});
-
-Route::controller(AdminProjectController::class)->prefix('/admin/project')->group(function () {
-    Route::get('/', 'index')->name('admin-project.index');
-    Route::get('/create', 'create')->name('admin-project.create');
-    Route::get('/edit/{id}', 'edit')->name('admin-project.edit');
-    Route::get('/detail/{id}', 'detail')->name('admin-project.detail');
-    Route::post('/update/{id}', 'update')->name('admin-project.update');
-    Route::post('/', 'store')->name('admin-project.strore');
-    Route::delete('/{id}', 'destroy')->name('admin-project.destroy');
-});
-
-Route::controller(AdminCodeController::class)->prefix('/admin/code')->group(function () {
-    Route::get('/', 'index')->name('admin-code.index');
-    Route::get('/create', 'create')->name('admin-code.create');
-    Route::post('/update/{id}', 'update')->name('admin-code.update');
-    Route::get('/edit/{id}', 'edit')->name('admin-code.edit');
-    Route::get('/detail/{id}', 'show')->name('admin-code.detail');
-    Route::patch('/{id}', 'update')->name('admin-code.update');
-    Route::post('/', 'store')->name('admin-code.strore');
-    Route::delete('/{id}', 'destroy')->name('admin-code.destroy');
-});
-
-Route::controller(AdminAboutController::class)->prefix('/admin/about')->group(function () {
-    Route::get('/', 'index')->name('admin-about.index');
-    Route::get('/create', 'create')->name('admin-about.create');
-    Route::get('/edit', 'edit')->name('admin-about.edit');
-    Route::get('/detail/{id}', 'detail')->name('admin-about.detail');
-    Route::patch('/{id}', 'update')->name('admin-about.update');
-    Route::post('/', 'store')->name('admin-about.strore');
-    Route::delete('/{id}', 'destroy')->name('admin-about.destroy');
-});
-
-Route::controller(AdminTaskController::class)->prefix('/admin/task')->group(function () {
-    Route::get('/', 'index')->name('admin-task.index');
-    Route::get('/create', 'create')->name('admin-task.create');
-    Route::get('/edit/{id}', 'edit')->name('admin-task.edit');
-    Route::get('/detail/{id}', 'detail')->name('admin-task.detail');
-    Route::patch('/{id}', 'update')->name('admin-task.update');
-    Route::post('/', 'store')->name('admin-task.strore');
-    Route::delete('/{id}', 'destroy')->name('admin-task.destroy');
-});
-
-Route::controller(AdminSettingController::class)->prefix('/admin/setting')->group(function () {
-    Route::get('/', 'index')->name('admin-setting.index');
-    Route::get('/setting-web', 'setting_web')->name('admin-setting.setting-web');
-    Route::get('/setting-account', 'setting_account')->name('admin-setting.setting-account');
-    Route::get('/detail/{id}', 'detail')->name('admin-setting.detail');
-    Route::get('/show-setting-web', 'show_web')->name('admin-setting.show-web');
-    Route::patch('/{id}', 'update')->name('admin-setting.update');
-    Route::post('/update-web-setting', 'update_web_setting')->name('admin-setting.update-web-setting');
-    Route::post('/update-account', 'update_account')->name('admin-setting.update-account');
-    Route::delete('/{id}', 'destroy')->name('admin-setting.destroy');
-});
-// });
-
-/*
-|--------------------------------------------------------------------------
-| END ROUTE PAGE ADMIN 🟤
-|--------------------------------------------------------------------------
-*/

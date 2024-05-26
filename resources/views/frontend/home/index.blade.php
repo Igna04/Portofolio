@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Fauzi Agustian
+Ignatius Simamora
 @endsection
 
 
@@ -35,31 +35,31 @@ Fauzi Agustian
                 <div class="col-lg-6 col-content-otr">
                     <div class="col-content-inr">
                         <h1 class="heading-h1 heading">
-                            Fauzi
-                            <span class="text-color"> Agustian </span>
+                            Ignatius
+                            <span class="text-color"> Simamora </span>
                         </h1>
-                        <p class="desc heading-L">Cuma website Biasa</p>
+                        <p class="desc heading-L">Look for my portofolio</p>
 
                         <div class="action">
                             <a href="/blog" class="btn-primary-1 left-btn heading-SB">Blog</a>
-                            <a href="/project" class="btn-primary-2 heading-SB">Project</a>
+                            <a href="/about" class="btn-primary-2 heading-SB">About me</a>
                         </div>
                         <div class="staticstics">
 
                             <div class="staticstics-box text-center">
-                                <a href="/code">
+                                <a href="https://www.linkedin.com/in/ignatius-simamora-31a515268/">
                                     <img class="hero-img img-fluid" src="assets/img/code.png" alt="hero-img" width="100px" />
                                     <p class="heading-MB static-desc">
-                                        Source Code 🤫
+                                        My LinkedIn 🤫
                                     </p>
                                 </a>
                             </div>
 
                             <div class="staticstics-box text-center">
-                                <a href="https://trakteer.id/zifau" target="_blank">
+                                <a href="https://github.com/Igna04" target="_blank">
                                     <img class="hero-img img-fluid" src="assets/img/kopi.png" alt="hero-img" width="100px" />
                                     <p class="heading-MB static-desc">
-                                        Traktir Kopi 😆
+                                        My Github 😆
                                     </p>
 
                                 </a>
@@ -89,113 +89,7 @@ Fauzi Agustian
               Hero End Here
     ===================================-->
 
-    <!--==================================
-        Feature Artwork Start Here
-    ===================================-->
-
-    <div class="feature-main">
-        <div class="container-fluid">
-            <div class="wrapper">
-                <h2 class="heading heading-h2">Project by Request</h2>
-                <a href="/project" class="view-all">
-                    <p class="view heading-SB">View All Project</p>
-                    <i class="ri-arrow-right-line arrow-right"></i>
-                </a>
-            </div>
-            <div class="row row-custom">
-                <div class="col-lg-3 col-otr " v-for="pj in project">
-                    <div class="col-inr box-1">
-                        <div class="cover-img-otr">
-                            <a href="">
-                                <template v-if="pj.image !=''">
-                                    <img class="cover-img" :src="'/files/project/' + pj.image" alt="Artwork" />
-                                </template>
-
-                                <template v-else>
-                                    <img class="cover-img" src="/files/project/default-project.png" alt="Artwork" />
-                                </template>
-
-
-                            </a>
-                            <div class="time-otr">
-                                <span class="heading-SB timer" style="color:black;">Post: Admin</span>
-                            </div>
-                            <span class="heart-icon-otr2 heart1">
-                                <i class="ri-heart-line heart-icon2 heart-1"></i>
-                            </span>
-                        </div>
-                        <a href="" class="art-name heading-MB-Mon">@{{ pj.name ?? ''}}</a>
-                        <div class="bid-main">
-                            <p class="bid heading-S">Laravel, VueJs</p>
-                            <p class="Price heading-SB">@{{ dateOnly(pj.created_at) }}</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="responsive">
-                <a href="/project" class="view-all">
-                    <p class="view heading-SB">View All Artwork</p>
-                    <i class="ri-arrow-right-line arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!--==================================
-        Feature Artwork End Here
-    ===================================-->
-
-    <!--==================================
-                Blog Start Here
-    ===================================-->
-
-    <div class="blog-main">
-        <div class="container-fluid">
-            <div class="wrapper">
-                <h2 class="heading heading-h2">Blog</h2>
-                <a href="/blog" class="view-all">
-                    <p class="view heading-SB">View All Blog</p>
-                    <i class="ri-arrow-right-line arrow-right"></i>
-                </a>
-            </div>
-            <div class="row row-custom">
-                <div class="col-lg-4 col-md-6 col-otr mb-4" v-for="bl in blog">
-                    <div class="col-inr box-1">
-                        <a :href="'/blog/detail/' + bl.id" class="img-otr">
-                            <template v-if="bl.image !=''">
-                                <img class="blog-img" :src="'/files/blog/' + bl.image" height="240px" alt="blog" />
-                            </template>
-
-                            <template v-else>
-                                <img class="blog-img" src="/files/blog/default-blog.png" height="240px" alt="blog" />
-                            </template>
-
-                        </a>
-                        <div class="content-otr">
-                            <p class="date-otr heading-S">• @{{ bl.categories.name ?? ''}} <span class="date-inr"> • @{{ dateOnly(bl.date) }}</span></p>
-                            <a :href="'/blog/detail/' + bl.id" class="heading heading-h5">@{{bl.title}}</a>
-                            <p class="desc heading-S">
-                                @{{ bl.content | liveSubstr}} <a :href="'/blog/detail/' + bl.id" class="date-otr heading-S">Selengkapnya --></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="responsive">
-                <a href="/blog" class="view-all">
-                    <p class="view heading-SB">View All Blog</p>
-                    <i class="ri-arrow-right-line arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
 </div>
-<!--==================================
-                Blog End Here
-    ===================================-->
-
 
 @endsection
 
